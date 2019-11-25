@@ -22,7 +22,6 @@ public class ListMusicasAdapter extends RecyclerView.Adapter<ListMusicasAdapter.
 
     private final Context context;
     private final List<MusicaLocal> musicas;
-    private OnItemClickListener onItemClickListener;
     private ListaMusicasActivity listaMusicas = new ListaMusicasActivity();
 
     public ListMusicasAdapter(Context context,List<MusicaLocal> musicas) {
@@ -34,9 +33,6 @@ public class ListMusicasAdapter extends RecyclerView.Adapter<ListMusicasAdapter.
         return this.musicas;
     }
 
-    public void setOnItemClickListener(OnItemClickListener onItemClickListener) {
-        this.onItemClickListener = onItemClickListener;
-    }
 
     @Override
     public ListMusicasAdapter.MusicaViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {

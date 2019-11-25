@@ -134,13 +134,13 @@ public class HomeActivity extends Activity implements
             startActivity(iniciarGerenciarPonto);
         }
         else if(RecyclerViewItemPosition == 5){
-            Intent iniciarPerfil =
-                    new Intent(HomeActivity.this, PerfilActivity.class);
-            startActivity(iniciarPerfil);
-        }else if(RecyclerViewItemPosition == 6){
             Intent iniciarGerenciarMusica =
                     new Intent(HomeActivity.this, ListaMusicasActivity.class);
             startActivity(iniciarGerenciarMusica);
+        }else if(RecyclerViewItemPosition == 6){
+            Intent iniciarPerfil =
+                    new Intent(HomeActivity.this, PerfilActivity.class);
+            startActivity(iniciarPerfil);
         }else if(RecyclerViewItemPosition == 7){
             Sessao.instance.reset();
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
