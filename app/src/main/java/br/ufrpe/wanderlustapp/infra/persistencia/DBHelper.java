@@ -46,6 +46,13 @@ public class DBHelper extends SQLiteOpenHelper {
     public static final String CAMPO_DESCRICAO_PONTO = "descricao";
     public static final String CAMPO_FK_CIDADE_PONTO = "fk_cidade";
 
+    //Tabela Musica
+    public static final String TABELA_MUSICA = "tb_musica";
+    public static final String CAMPO_ID_MUSICA = "id";
+    public static final String CAMPO_NOME_MUSICA = "nome_musica";
+    public static final String CAMPO_DESCRICAO_MUSICA = "descricao";
+    public static final String CAMPO_FK_CIDADE_MUSICA = "fk_cidade";
+
     //Tabela PessoaPrato
     public static final String TABELA_PESSOA_PRATO = "tb_pessoa_prato";
     public static final String CAMPO_ID_PESSOA_PRATO = "id";
@@ -68,7 +75,7 @@ public class DBHelper extends SQLiteOpenHelper {
 
 
     private static final String[] TABELAS = {
-            TABELA_PESSOA, TABELA_USUARIO, TABELA_PAIS, TABELA_CIDADE, TABELA_PRATO, TABELA_PONTO, TABELA_PESSOA_PRATO, TABELA_PRATO_IMAGEM, TABELA_PONTO_IMAGEM
+            TABELA_PESSOA, TABELA_USUARIO, TABELA_PAIS, TABELA_CIDADE, TABELA_PRATO, TABELA_PONTO, TABELA_MUSICA, TABELA_PESSOA_PRATO, TABELA_PRATO_IMAGEM, TABELA_PONTO_IMAGEM
     };
 
     public DBHelper(Context context) {
@@ -84,6 +91,7 @@ public class DBHelper extends SQLiteOpenHelper {
         createTableCidade(db);
         createTablePrato(db);
         createTablePonto(db);
+        createTableMusica(db);
         createTablePessoaPrato(db);
         createTablePratoImagem(db);
         createTablePontoImagem(db);
@@ -165,6 +173,20 @@ public class DBHelper extends SQLiteOpenHelper {
                         ");";
         sqlTbPonto = String.format(sqlTbPonto,
                 TABELA_PONTO, CAMPO_ID_PONTO, CAMPO_NOME_PONTO, CAMPO_DESCRICAO_PONTO, CAMPO_FK_CIDADE_PONTO, CAMPO_FK_CIDADE_PONTO, TABELA_CIDADE, CAMPO_ID_CIDADE);
+        db.execSQL(sqlTbPonto);
+    }
+
+    private void createTableMusica(SQLiteDatabase db){
+        String sqlTbPonto =
+                "CREATE TABLE %1$s ( "  +
+                        "  %2$s INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                        "  %3$s TEXT NOT NULL, " +
+                        "  %4$s TEXT NOT NULL, " +
+                        "  %5$s INTEGER NOT NULL, " +
+                        "  FOREIGN KEY(%6$s) REFERENCES %7$s(%8$s)" +
+                        ");";
+        sqlTbPonto = String.format(sqlTbPonto,
+                TABELA_MUSICA, CAMPO_ID_MUSICA, CAMPO_NOME_MUSICA, CAMPO_DESCRICAO_MUSICA, CAMPO_FK_CIDADE_MUSICA, CAMPO_FK_CIDADE_MUSICA, TABELA_CIDADE, CAMPO_ID_CIDADE);
         db.execSQL(sqlTbPonto);
     }
 
