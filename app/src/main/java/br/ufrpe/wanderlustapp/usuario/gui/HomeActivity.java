@@ -21,6 +21,7 @@ import java.util.List;
 import br.ufrpe.wanderlustapp.R;
 import br.ufrpe.wanderlustapp.infra.Sessao;
 import br.ufrpe.wanderlustapp.infra.recomendacao.Recomendacao;
+import br.ufrpe.wanderlustapp.musicaLocal.gui.ListaMusicasActivity;
 import br.ufrpe.wanderlustapp.pessoaPrato.dominio.PessoaPrato;
 import br.ufrpe.wanderlustapp.pessoaPrato.negocio.PessoaPratoServices;
 import br.ufrpe.wanderlustapp.pontoTuristico.gui.ListaPontosActivity;
@@ -137,6 +138,10 @@ public class HomeActivity extends Activity implements
                     new Intent(HomeActivity.this, PerfilActivity.class);
             startActivity(iniciarPerfil);
         }else if(RecyclerViewItemPosition == 6){
+            Intent iniciarGerenciarMusica =
+                    new Intent(HomeActivity.this, ListaMusicasActivity.class);
+            startActivity(iniciarGerenciarMusica);
+        }else if(RecyclerViewItemPosition == 7){
             Sessao.instance.reset();
             startActivity(new Intent(HomeActivity.this, LoginActivity.class));
         }
@@ -249,6 +254,7 @@ public class HomeActivity extends Activity implements
         Tela.add("Pontos Turísticos");
         Tela.add("Gerenciar pratos");
         Tela.add("Gerenciar pontos");
+        Tela.add("Gerenciar música");
         Tela.add("Perfil");
         Tela.add("Sair");
     }
