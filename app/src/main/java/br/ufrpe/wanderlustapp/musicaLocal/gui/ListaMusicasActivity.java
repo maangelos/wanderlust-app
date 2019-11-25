@@ -59,13 +59,14 @@ public class ListaMusicasActivity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
     }
 
-
     @Override
     protected void onResume() {
         MusicaLocal musicaLocal = Sessao.instance.getMusicaLocal();
         if (musicaLocal != null){
             if (musicaLocal.getId() == 0){
                 insereMusica(musicaLocal);
+                Sessao.instance.resetMusica();
+            }else{
                 Sessao.instance.resetMusica();
             }
         }
@@ -81,7 +82,6 @@ public class ListaMusicasActivity extends AppCompatActivity {
         recyclerView.setAdapter(adapter);
 
     }
-
 
     private void configuraRecyclerview() {
         RecyclerView listaMusicas = findViewById(R.id.lista_musicas_recyclerview);

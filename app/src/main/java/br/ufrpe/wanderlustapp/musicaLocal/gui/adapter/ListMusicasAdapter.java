@@ -72,12 +72,6 @@ public class ListMusicasAdapter extends RecyclerView.Adapter<ListMusicasAdapter.
             super(itemView);
             titulo = itemView.findViewById(R.id.item_musica_nome);
             descricao = itemView.findViewById(R.id.item_musica_descricao);
-            itemView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
-                    onItemClickListener.onItemClick(musicaLocal, getAdapterPosition());
-                }
-            });
         }
 
         public void vincula(MusicaLocal musicaLocal) {
